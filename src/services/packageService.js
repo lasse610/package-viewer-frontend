@@ -1,6 +1,6 @@
 import http from './httpService';
 
-const apiEndpoint = '/movies'
+const apiEndpoint = '/packages'
 
 function packageURL(packageName){
     return `${apiEndpoint}/${packageName ? packageName : ''}`;
