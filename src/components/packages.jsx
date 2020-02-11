@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {getPackages} from '../services/packageService';
 import Pagination from './common/pagination';
+import Spinner from './common/spinner'
 import {paginate} from '../utils/paginate';
 import PackagesTable from './packagesTable';
 import _ from 'lodash';
@@ -9,16 +10,18 @@ import SearchBox from './common/searchBox';
 class Packages extends Component {
     state = {
         packages: [],
-        pageSize: 20,
+        pageSize: 10,
         currentPage:1,
-        searchText:"",
-        sortColumn: {path:'title', order:'asc'}
+        searchText:'',
+        sortColumn: {path:'title', order:'asc'},
+        loaded:false
     }
 
     componentDidMount = async() => {
         const {data: packages} = await getPackages();
+        const loaded = true;
         this.setState({
-            packages
+            packages, loaded
         });
     }
 
@@ -54,11 +57,12 @@ class Packages extends Component {
         const { totalCount, data: packages } = this.getPagedData();
         
         return(
-        <div className="row">
-            <div className="col">
-               <SearchBox onChange={this.handleSearch} value={this.state.searchText} />
-               <PackagesTable sortColumn={sortColumn} packages={packages} onSort={this.handleSort} />
+        <div className='row'>
+            <div className='col'>
+               <SearchBox onChange={this.handleSearch} value={this.state.searchText} total={totalCount}/>
+               <PackagesTable sortColumn={sortColumn} packages={packages} onSort={this.handleSort}/>
                <Pagination itemsCount={totalCount} pageSize={pageSize} currentPage={currentPage} onPageChange={this.handlePageChange} />
+                {!this.state.loaded && <Spinner/>}
             </div>
          </div>
       );

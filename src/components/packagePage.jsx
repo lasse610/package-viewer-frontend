@@ -42,7 +42,7 @@ export default class PackagePage extends Component {
          const {title, section, installed_size, dependencies, reverseDeps, description} = this.state.data
          return (
            <div>
-             <table className="table table-borderless">
+             <table className='table table-borderless'>
                <tbody>
                  <tr>
                    <th>Title:</th>
@@ -62,10 +62,10 @@ export default class PackagePage extends Component {
                  </tr>
                </tbody>
              </table>
-             <div className="row">
-               <div className="col-md-6">
-                 <table className="table table-borderless">
-                   <thead className="thead-dark">
+             <div className='row'>
+               <div className='col-md-6'>
+                 <table className='table table-borderless'>
+                   <thead className='thead-dark'>
                      <tr>
                        <th>Requires ({dependencies.length})</th>
                      </tr>
@@ -77,7 +77,7 @@ export default class PackagePage extends Component {
                            <td>
                              {d.map((p, i) => (
                                <span key={p}>
-                                 {i < 1 ? "" : " or "}{" "}
+                                 {i < 1 ? '' : ' or '}{' '}
                                  <Link to={`/packages/${p}`}>{p}</Link>
                                </span>
                              ))}
@@ -88,9 +88,9 @@ export default class PackagePage extends Component {
                    </tbody>
                  </table>
                </div>
-               <div className="col-md-6">
-                 <table className="table table-borderless">
-                   <thead className="thead-dark">
+               <div className='col-md-6'>
+                 <table className='table table-borderless'>
+                   <thead className='thead-dark'>
                      <tr>
                        <th>Required by ({reverseDeps.length})</th>
                      </tr>

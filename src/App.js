@@ -11,9 +11,9 @@ function App() {
       <Switch>
          <Route path='/packages/:title' render={(props) => <PackagePage {...props} key={Math.random()}/>} />
          <Route path='/packages' component={Packages}/>
-         <Route path="/not-found" component={NotFound} />
-         <Redirect exact from="/" to="/packages" />
-         <Redirect to="/not-found" />
+         <Route path='/not-found' component={NotFound} />
+         <Redirect exact from='/' to='/packages' />
+         <Redirect to='/not-found' />
       </Switch>
     </React.Fragment>
    
