@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Table from './common/table';
+import GenericTable from './genericTable';
 
 export default class PackagesTable extends Component {
    columns = [
@@ -24,7 +24,7 @@ export default class PackagesTable extends Component {
    render() {
       const { packages, onSort, sortColumn } = this.props;
       return (
-         <Table columns={this.columns} sortColumn={sortColumn} data={packages} onSort={onSort} />
+         <GenericTable columns={this.columns} sortColumn={sortColumn} data={packages} onSort={onSort} />
       );
    }
 }
