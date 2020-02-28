@@ -1,7 +1,8 @@
 ## Debian Package Viewer
 Package viewer for debian control files.
 The app is live at: [https://warm-reef-34156.herokuapp.com/packages](https://warm-reef-34156.herokuapp.com/packages)
-Chckout also the backend: [https://github.com/lasse610/package-viewer-backend](https://github.com/lasse610/package-viewer-backend)
+
+Checkout also the backend: [https://github.com/lasse610/package-viewer-backend](https://github.com/lasse610/package-viewer-backend)
 
 **How to use:**
 
